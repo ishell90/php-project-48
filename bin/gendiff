@@ -1,20 +1,15 @@
 #!/usr/bin/env php
 <?php
 
-$doc = <<<DOC
-Naval Fate.
+use Project48\Docopt;
 
-Usage:
-    gendiff (-h|--help)
-    gendiff (-v|--version)
+$autoloadPath1 = __DIR__ . '/../../../autoload.php';
+$autoloadPath2 = __DIR__ . '/../vendor/autoload.php';
 
-Options:
-    -h --help                     Show this screen
-    -v --version                  Show version
+if (file_exists($autoloadPath1)) {
+    require_once $autoloadPath1;
+} else {
+    require_once $autoloadPath2;
+}
 
-DOC;
-
-require('path/to/src/docopt.php');
-$args = Docopt::handle($doc, array('version'=>'Naval Fate 2.0'));
-foreach ($args as $k=>$v)
-    echo $k.': '.json_encode($v).PHP_EOL;
+print_r(Docopt\run());
