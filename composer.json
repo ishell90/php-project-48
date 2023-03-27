@@ -1,0 +1,17 @@
+{
+    "name": "hexlet/code",
+    "description": "Two project",
+    "authors": [
+        {
+            "name": "Илья Шалаев",
+            "email": "alex.280200@mail.ru"
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        "docopt/docopt": "^1.0"
+    },
+    "bin": [
+        "bin/gendiff"
+      ]
+}
