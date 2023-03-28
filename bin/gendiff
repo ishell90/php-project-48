@@ -11,7 +11,7 @@ if (file_exists($autoloadPath1)) {
 }
 
 $doc = <<<DOC
-    gendiff -h
+
     Generate diff
     
     Usage:
@@ -25,6 +25,8 @@ $doc = <<<DOC
     DOC;
     
 
-$args = Docopt::handle($doc, array('version'=>'2.0'));
+$args = Docopt::handle($doc, array('help'=>'help','version'=>'2.0'));
     foreach ($args as $k=>$v) 
         echo $k.': '.json_encode($v).PHP_EOL;
+
+dump($argc);
