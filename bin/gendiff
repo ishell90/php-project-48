@@ -1,11 +1,17 @@
 #!/usr/bin/env php
 <?php
 
-use Docopt;
+$autoloadPath1 = __DIR__ . '/../../../autoload.php';
+$autoloadPath2 = __DIR__ . '/../vendor/autoload.php';
 
-function run(){
+if (file_exists($autoloadPath1)) {
+    require_once $autoloadPath1;
+} else {
+    require_once $autoloadPath2;
+}
 
-    $doc = <<<DOC
+$doc = <<<DOC
+    gendiff -h
     Generate diff
     
     Usage:
@@ -18,10 +24,7 @@ function run(){
     
     DOC;
     
-    $args = Docopt::handle($doc, array('help' => 'help me pls', 'version' => '2.0'));
-    foreach ($args as $k=>$v)
+
+$args = Docopt::handle($doc, array('version'=>'2.0'));
+    foreach ($args as $k=>$v) 
         echo $k.': '.json_encode($v).PHP_EOL;
-    
-    dump($argc);
-    }
-print_r(run()); 

@@ -3,7 +3,6 @@
     "description": "Two project",
     "autoload": {
         "files": [
-            "Docopt.php"
         ]
     },
     "authors": [
