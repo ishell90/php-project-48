@@ -28,5 +28,9 @@ $doc = <<<DOC
     
 
 $args = Docopt::handle($doc, array('help'=>'help','version'=>'2.0'));
+$a = $args['<firstFile>'];
+$b = $args['<secondFile>'];
+
+
 
 print_r($args);
