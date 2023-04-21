@@ -1,14 +1,14 @@
 <?php
 
 namespace src\genDiff;
-$pathToFile1 = realpath($filePath);
-$pathToFile2 = realpath($filePath);
+$realFilePath1 = realpath("file1.json");
+$realFilePath2 = realpath("file2.json");
 
 
-function genDiff($pathToFile1, $pathToFile2)
+function genDiff($realFilePath1, $realFilePath2)
 {
-    $firstStringFile = file_get_contents($pathToFile1);
-    $twoStringFile = file_get_contents($pathToFile2);
+    $firstStringFile = file_get_contents($realFilePath1);
+    $twoStringFile = file_get_contents($realFilePath2);
     $firstDecodeFile = json_decode($firstStringFile, true);
     $twoDecodeFile = json_decode($twoStringFile, true);
     $firstSortFile = ksort($firstDecodeFile);
@@ -18,4 +18,4 @@ function genDiff($pathToFile1, $pathToFile2)
     
 }
 
-genDiff($pathToFile1, $pathToFile2);
+genDiff($realFilePath1, $realFilePath2);
