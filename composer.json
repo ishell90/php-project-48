@@ -1,6 +1,11 @@
 {
     "name": "hexlet/code",
     "description": "Two project",
+    "autoload": {
+        "files": [
+            "src/genDiff.php"
+        ]
+    },
     "authors": [
         {
             "name": "Илья Шалаев",
