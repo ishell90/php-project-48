@@ -21,31 +21,31 @@ function genDiff($realFilePath1, $realFilePath2)
     //var_dump($c);
     $result = "";
 
-    foreach($c as $key1 => $value1) {
-        if(array_key_exists($value1, $firstDecodeFile) === true && array_key_exists($value1, $twoDecodeFile) === true) {
+    foreach ($c as $key1 => $value1) {
+        if (array_key_exists($value1, $firstDecodeFile) && array_key_exists($value1, $twoDecodeFile)) {
             $meaning1 = $firstDecodeFile[$value1];
             $meaning2 = $twoDecodeFile[$value1];
-            if($meaning1 === $meaning2) {
-                if(strlen($result) < 1) {
+            if ($meaning1 === $meaning2) {
+                if (strlen($result) < 1) {
                     $result = "  {$value1}: {$meaning1}";
                 } else {
                     $result = "{$result}\n  {$value1}: {$meaning1}";
                 }
             } else {
-                if(strlen($result) < 1) {
+                if (strlen($result) < 1) {
                     $result = "- {$value1}: {$meaning1}\n+ {$value1}: {$meaning2}";
                 } else {
                     $result = "{$result}\n- {$value1}: {$meaning1}\n+ {$value1}: {$meaning2}";
                 }
             }
-        } elseif(array_key_exists($value1, $firstDecodeFile) === true && array_key_exists($value1, $twoDecodeFile) === false) {
-            if(is_string($firstDecodeFile[$value1]) === true) {
+        } elseif (array_key_exists($value1, $firstDecodeFile) && array_key_exists($value1, $twoDecodeFile) === false) {
+            if (is_string($firstDecodeFile[$value1]) === true) {
                 $meaning1 = (string) $firstDecodeFile[$value1];
             } else {
-            $meaning1 = var_export($firstDecodeFile[$value1], true);
+                $meaning1 = var_export($firstDecodeFile[$value1], true);
             }
             //var_dump($meaning1);
-            if(strlen($result) < 1) {
+            if (strlen($result) < 1) {
                 $result = "- {$value1}: {$meaning1}";
             } else {
                 $result = "{$result}\n- {$value1}: {$meaning1}";
@@ -53,7 +53,7 @@ function genDiff($realFilePath1, $realFilePath2)
         } else {
             $meaning2 = var_export($twoDecodeFile[$value1], true);
             //var_dump($meaning2);
-            if(strlen($result) < 1) {
+            if (strlen($result) < 1) {
                 $result = "+ {$value1}: {$meaning2}";
             } else {
                 $result = "{$result}\n+ {$value1}: {$meaning2}";
@@ -62,10 +62,4 @@ function genDiff($realFilePath1, $realFilePath2)
         //var_dump($result);
     }
     return($result);
-    
-    //var_dump($firstDecodeFile);
-    //var_dump($twoDecodeFile);
-    
 }
-
-//genDiff($realFilePath1, $realFilePath2);
