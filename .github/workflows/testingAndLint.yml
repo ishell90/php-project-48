@@ -1,0 +1,21 @@
+name: Test and Lint
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Get repository code
+        uses: actions/checkout@3
+      - name: Install dependecies
+        run: make install
+      - name: Test
+        run: make test
+  lint:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Get repository code
+        uses: actions/checkout@3
+      - name: Install dependecies
+        run: make install
+      - name: Lint
+        run: make lint
