@@ -39,20 +39,19 @@ function genDiff($realFilePath1, $realFilePath2)
                 }
             }
 
-        if ($meaning1 === $meaning2) {
-            if (strlen($result) < 1) {
-                $result = "  {$value1}: {$meaning1}";
+            if ($meaning1 === $meaning2) {
+                if (strlen($result) < 1) {
+                    $result = "  {$value1}: {$meaning1}";
+                } else {
+                    $result = "{$result}\n  {$value1}: {$meaning1}";
+                }
             } else {
-                $result = "{$result}\n  {$value1}: {$meaning1}";
+                if (strlen($result) < 1) {
+                    $result = "- {$value1}: {$meaning1}\n+ {$value1}: {$meaning2}";
+                } else {
+                    $result = "{$result}\n- {$value1}: {$meaning1}\n+ {$value1}: {$meaning2}";
+                }
             }
-        } else {
-            if (strlen($result) < 1) {
-                $result = "- {$value1}: {$meaning1}\n+ {$value1}: {$meaning2}";
-            } else {
-                $result = "{$result}\n- {$value1}: {$meaning1}\n+ {$value1}: {$meaning2}";
-            }
-        }
-        
         } elseif (array_key_exists($value1, $firstDecodeFile) && !array_key_exists($value1, $twoDecodeFile)) {
             if (is_string($firstDecodeFile[$value1]) === true) {
                 $meaning1 = (string) $firstDecodeFile[$value1];
