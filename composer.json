@@ -15,7 +15,8 @@
     "license": "MIT",
     "require": {
         "docopt/docopt": "^1.0",
-        "webmozart/assert": "^1.11"
+        "webmozart/assert": "^1.11",
+        "symfony/yaml": "^6.3"
     },
     "bin": [
         "bin/gendiff"
