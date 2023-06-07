@@ -8,7 +8,8 @@ use Symfony\Component\Yaml\Yaml;
 //$firstPath = realpath("file1.json");
 //$secondPath = realpath("file2.json");
 
-function parsers($firstPath, $secondPath){
+function parsers($firstPath, $secondPath)
+{
     $extension1 = substr($firstPath, strrpos($firstPath, '.') + 1);
     $extension2 = substr($secondPath, strrpos($secondPath, '.') + 1);
 
@@ -52,5 +53,4 @@ function parsers($firstPath, $secondPath){
     //var_dump($resultGood);
     return $resultGood;
 }
-
 //Parsers($firstPath, $secondPath);

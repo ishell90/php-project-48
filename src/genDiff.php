@@ -2,8 +2,8 @@
 
 namespace src\genDiff;
 
-function genDiff($resultGood) {
-
+function genDiff($resultGood)
+{
     $firstDecodeFile = $resultGood[0];
     $twoDecodeFile = $resultGood[1];
     $a = array_keys($firstDecodeFile);
