@@ -2,26 +2,19 @@
 
 namespace src\genDiff;
 
-//$realFilePath1 = realpath("../file1.json");
-//$realFilePath2 = realpath("../file2.json");
+function genDiff($resultGood) {
 
-
-function genDiff($realFilePath1, $realFilePath2)
-{
-    $firstStringFile = file_get_contents($realFilePath1);
-    $twoStringFile = file_get_contents($realFilePath2);
-    $firstDecodeFile = json_decode($firstStringFile, true);
-    $twoDecodeFile = json_decode($twoStringFile, true);
+    $firstDecodeFile = $resultGood[0];
+    $twoDecodeFile = $resultGood[1];
     $a = array_keys($firstDecodeFile);
     $b = array_keys($twoDecodeFile);
     $c = array_unique(array_merge($a, $b));
     asort($c);
-    //ksort($firstDecodeFile);
-    //ksort($twoDecodeFile);
     //var_dump($c);
     $result = "";
 
-    foreach ($c as $key1 => $value1) {
+    foreach ($c as $key1 => $value) {
+        $value1 = trim($value);
         if (array_key_exists($value1, $firstDecodeFile) && array_key_exists($value1, $twoDecodeFile)) {
             if (is_bool($firstDecodeFile[$value1])) {
                 $meaning1 = var_export($firstDecodeFile[$value1], true);
@@ -55,6 +48,7 @@ function genDiff($realFilePath1, $realFilePath2)
         } elseif (array_key_exists($value1, $firstDecodeFile) && !array_key_exists($value1, $twoDecodeFile)) {
             if (is_string($firstDecodeFile[$value1]) === true) {
                 $meaning1 = (string) $firstDecodeFile[$value1];
+                //var_dump($meaning1);
             } else {
                 $meaning1 = var_export($firstDecodeFile[$value1], true);
             }

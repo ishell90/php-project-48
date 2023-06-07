@@ -3,7 +3,8 @@
     "description": "Two project",
     "autoload": {
         "files": [
-            "src/genDiff.php"
+            "src/genDiff.php",
+            "src/Parsers.php"
         ]
     },
     "authors": [

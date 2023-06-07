@@ -8,3 +8,4 @@ ___
 ___
 ### Asciinems:
 [![asciicast](https://asciinema.org/a/enK9qMu4ke5RjTExsGNOdBwj3.svg)](https://asciinema.org/a/enK9qMu4ke5RjTExsGNOdBwj3)
+[![asciicast](https://asciinema.org/a/S2Ix808B3c8sk3Im6niy2u8vN.svg)](https://asciinema.org/a/S2Ix808B3c8sk3Im6niy2u8vN)

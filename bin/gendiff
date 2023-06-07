@@ -2,6 +2,7 @@
 <?php
 
 use function src\genDiff\genDiff;
+use function src\Parsers\parsers;
 
 $autoloadPath1 = __DIR__ . '/../../../autoload.php';
 $autoloadPath2 = __DIR__ . '/../vendor/autoload.php';
@@ -34,7 +35,9 @@ $args = Docopt::handle($doc, array('help'=>'help','version'=>'2.0'));
 $a = $args['<firstFile>'];
 $b = $args['<secondFile>'];
 
-$diff = genDiff($a, $b);
+$result = parsers($a, $b);
+
+$diff = genDiff($result);
 
 print_r($diff);
 print_r("\n");

@@ -2,36 +2,55 @@
 
 namespace src\Parsers;
 
+//require_once __DIR__ . '/../vendor/autoload.php';
 use Symfony\Component\Yaml\Yaml;
 
-$firstPath = realpath("../filepath1.yml");
-$secondPath = realpath("../filepath2.yml");
+//$firstPath = realpath("file1.json");
+//$secondPath = realpath("file2.json");
 
-function Parsers($firstPath, $secondPath){
+function parsers($firstPath, $secondPath){
     $extension1 = substr($firstPath, strrpos($firstPath, '.') + 1);
     $extension2 = substr($secondPath, strrpos($secondPath, '.') + 1);
-    var_dump($extension1);
 
     if ($extension1 === "json") {
         $firstStringFile = file_get_contents($firstPath);
-        $firstDecodeFile = json_decode($firstStringFile, true);
+        $result1 = json_decode($firstStringFile, true);
     } else {
-        $firstDecodeFile = Yaml::parseFile($firstPath);
-        $var_dump($firstDecodeFile);
+        if (filesize($firstPath) < 6) {
+            $result1 = [];
+        } else {
+            $firstDecodeFile = explode(",", Yaml::parseFile($firstPath));
+            $result1 = [];
+            foreach ($firstDecodeFile as $key1 => $value1) {
+                $trim = trim($value1);
+                $ag = explode(":", $trim);
+                $result1[$ag[0]] = $ag[1];
+            }
+        }
+        //var_dump($result1);
     }
 
     if ($extension2 === "yml" || $extension2 === "yaml") {
-        $twoDecodeFile = Yaml::parseFile($secondPath);
+        if (filesize($secondPath) < 6) {
+            $result2 = [];
+        } else {
+            $twoDecodeFile = explode(",", Yaml::parseFile($secondPath));
+            $result2 = [];
+            foreach ($twoDecodeFile as $key2 => $value2) {
+                $trim = trim($value2);
+                $ag = explode(":", $trim);
+                $result2[$ag[0]] = $ag[1];
+            }
+        }
+        //var_dump($result2);
     } else {
         $twoStringFile = file_get_contents($secondPath);
-        $twoDecodeFile = json_decode($twoStringFile, true);
+        $result2 = json_decode($twoStringFile, true);
+        //var_dump($result2);
     }
-
-    $a = array_keys($firstDecodeFile);
-    $b = array_keys($twoDecodeFile);
-    $c = array_unique(array_merge($a, $b));
-    asort($c);
-    return $c;
+    $resultGood = [$result1, $result2];
+    //var_dump($resultGood);
+    return $resultGood;
 }
 
-Parsers($firstPath, $secondPath);
+//Parsers($firstPath, $secondPath);

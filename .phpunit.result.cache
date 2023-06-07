@@ -1,1 +1,1 @@
-{"version":1,"defects":{"tests\\genDiffTest\\genDiffTest::testGoodScenarioYml":4},"times":{"tests\\genDiffTest\\genDiffTest::testGoodScenarioJson":0.005,"tests\\genDiffTest\\genDiffTest::testGoodScenarioYml":0.001}}
+{"version":1,"defects":{"tests\\genDiffTest\\genDiffTest::testGoodScenarioYml":3,"tests\\genDiffTest\\genDiffTest::testGoodScenarioJson":4},"times":{"tests\\genDiffTest\\genDiffTest::testGoodScenarioJson":0.001,"tests\\genDiffTest\\genDiffTest::testGoodScenarioYml":0.002}}
