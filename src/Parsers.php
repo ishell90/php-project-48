@@ -2,7 +2,6 @@
 
 namespace Differ\Parsers;
 
-
 use Symfony\Component\Yaml\Yaml;
 
 /**
@@ -42,5 +41,3 @@ function parseFile(string $filePath)
             throw new \Exception("{$fileExtension} is invalid file format");
     }
 }
-
-
