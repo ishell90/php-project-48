@@ -8,7 +8,6 @@ use function Differ\Differ\genDiff;
 
 class DiffTest extends TestCase
 {
-    
     /**
      * @param string $fixtureName
      * @return string
