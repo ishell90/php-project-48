@@ -7,5 +7,4 @@ ___
 [![Test Coverage](https://api.codeclimate.com/v1/badges/12a88fb0835e2f4d9974/test_coverage)](https://codeclimate.com/github/ishell90/php-project-48/test_coverage)
 ___
 ### Asciinems:
-[![asciicast](https://asciinema.org/a/enK9qMu4ke5RjTExsGNOdBwj3.svg)](https://asciinema.org/a/enK9qMu4ke5RjTExsGNOdBwj3)
-[![asciicast](https://asciinema.org/a/S2Ix808B3c8sk3Im6niy2u8vN.svg)](https://asciinema.org/a/S2Ix808B3c8sk3Im6niy2u8vN)
+[![asciicast](https://asciinema.org/a/sveLflxihFLaLyTLoZtPY7QfT.svg)](https://asciinema.org/a/sveLflxihFLaLyTLoZtPY7QfT)
