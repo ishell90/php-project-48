@@ -9,12 +9,23 @@ use function Differ\Differ\genDiff;
 class DiffTest extends TestCase
 {
     
+    /**
+     * @param string $fixtureName
+     * @return string
+     */
     private function getFixtureFullPath($fixtureName)
     {
         return __DIR__ . "/fixtures/" . $fixtureName;
     }
 
-    
+    /**
+     * @dataProvider mainProvider
+     * @param string $file1
+     * @param string $file2
+     * @param string $expectedResult
+     * @param string $format
+     * @return void
+     */
     public function testTwoGendiffs($file1, $file2, $format, $expectedResult)
     {
         $fixture1 = $this->getFixtureFullPath($file1);
@@ -23,7 +34,9 @@ class DiffTest extends TestCase
         $this->assertEquals(genDiff($fixture1, $fixture2, $format), $diffResult);
     }
 
-    
+    /**
+     * @return array<int, array<int, string>>
+     */
     public function mainProvider()
     {
         return [

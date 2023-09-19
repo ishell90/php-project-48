@@ -6,6 +6,11 @@ use function Differ\Formatters\Stylish\formatStylish;
 use function Differ\Formatters\Plain\formatPlain;
 use function Differ\Formatters\Json\formatJson;
 
+ /**
+ * @param array<mixed> $astTree
+ * @param string $format
+ * @return string
+ */
 function formatResult(array $astTree, string $format): string
 {
     switch ($format) {

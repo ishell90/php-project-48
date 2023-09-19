@@ -2,6 +2,11 @@
 
 namespace Differ\Formatters\Stylish;
 
+/**
+ * @param array<mixed> $astTree
+ * @param int $depth
+ * @return string
+ */
 function formatStylish(array $astTree, int $depth = 0): string
 {
     $indent = str_repeat('    ', $depth);

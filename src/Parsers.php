@@ -1,10 +1,14 @@
 <?php
 
-namespace src\Parsers;
+namespace Differ\Parsers;
 
 
 use Symfony\Component\Yaml\Yaml;
 
+/**
+ * @param string $filePath
+ * @return string
+ */
 function getRealPath(string $filePath)
 {
     $realFilePath = realpath($filePath);
@@ -15,6 +19,10 @@ function getRealPath(string $filePath)
     return $realFilePath;
 }
 
+/**
+ * @param string $filePath
+ * @return array<mixed>
+ */
 function parseFile(string $filePath)
 {
     $realFilePath = getRealPath($filePath);

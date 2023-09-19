@@ -6,6 +6,12 @@ use function Functional\sort;
 use function Differ\Parsers\parseFile;
 use function Differ\Formatters\formatResult;
 
+/**
+ * @param string $pathToFile1
+ * @param string $pathToFile2
+ * @param string $format
+ * @return string
+ */
 function genDiff(string $pathToFile1, string $pathToFile2, string $format = 'stylish'): string
 {
     $file1Content = parseFile($pathToFile1);
@@ -15,11 +21,23 @@ function genDiff(string $pathToFile1, string $pathToFile2, string $format = 'sty
     return formatResult($astTree, $format);
 }
 
+/**
+ * @param string $status
+ * @param string $key
+ * @param mixed $value1
+ * @param mixed $value2
+ * @return array<mixed>
+ */
 function makeNode(string $status, string $key, $value1, $value2 = null)
 {
     return ['status' => $status, 'key' => $key, 'value1' => $value1, 'value2' => $value2];
 }
 
+/**
+ * @param array<mixed> $contentFile1
+ * @param array<mixed> $contentFile2
+ * @return array<mixed>
+ */
 function buildAst(array $contentFile1, array $contentFile2): array
 {
     $file1Keys = array_keys($contentFile1);
@@ -30,6 +48,12 @@ function buildAst(array $contentFile1, array $contentFile2): array
     return array_map(fn($key) => genAst($key, $contentFile1, $contentFile2), $sortedKeys);
 }
 
+/**
+ * @param string $key
+ * @param array<mixed> $contentFile1
+ * @param array<mixed> $contentFile2
+ * @return array<mixed>
+ */
 function genAst(string $key, array $contentFile1, array $contentFile2): array
 {
     $value1 = $contentFile1[$key] ?? null;
@@ -54,6 +78,10 @@ function genAst(string $key, array $contentFile1, array $contentFile2): array
     return makeNode('unchanged', $key, $value1);
 }
 
+/**
+ * @param mixed $content
+ * @return mixed
+ */
 function stringify($content)
 {
     $iter = function ($content) use (&$iter) {
